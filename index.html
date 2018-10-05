@@ -361,18 +361,14 @@ height:50vh;
     <article class="index-post">
         <a class="abstract-title" href = "/2018/10/05/函数/" >
             
-                <span>[Untitled Post]</span>
+                <span>函数</span>
         </a>
         <div class="abstract-content">
-            
-title:函数tags:Fortran
-
-函数[TOC]
-子程序的使用
+            函数子程序的使用
 子程序独立地拥有属于自己的变量声明：在主程序和其他的子程序之间，所声明出来的变量彼此是不相干的。
 
 传递参数：在调用子程序时，可以同时调用一些变量数据过去让它处理。
-123456789101112131415program mainimplicit none  integer :: a=1  integer :: b=2  call add(a,b) !把变量a和b交给子程序add来处理  stopendsubroutine add(first,second) !指定两个变量来接收传递进来的参数，!first的初...
+123456789101112131415program mainimplicit none  integer :: a=1  integer :: b=2  call add(a,b) !把变量a和b交给子程序add来处理  stopendsubroutine add(first,second) !指定两个变量来接收传递进来的参数，!first的初值等于主程序中的a，因为a是调用所输入的第一个数值，b也同...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -380,6 +376,16 @@ title:函数tags:Fortran
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/05</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "笔记">笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "全局变量">全局变量</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "函数">函数</a>
+    
+</div>
             
         </div>
     </article>
@@ -607,13 +613,19 @@ title:函数tags:Fortran
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/05/函数/" >[Untitled Post]</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/05/函数/" >函数</a>
         </li>
     
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="全局变量"><span class="iconfont-archer">&#xe606;</span>全局变量</span>
+    
+        <span class="sidebar-tag-name" data-tags="函数"><span class="iconfont-archer">&#xe606;</span>函数</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -647,6 +659,8 @@ jsonContent:
 </div>
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Fortran"><span class="iconfont-archer">&#xe60a;</span>Fortran</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

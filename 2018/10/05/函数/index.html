@@ -22,7 +22,7 @@
     <meta name="description" content="李佳的博客">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>李佳的博客 | LeeJia&#39;s Studio</title>
+    <title>函数 · 李佳的博客 | LeeJia&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >LeeJia&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name"></a>
+                <a href="#" class="post-name">函数</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [Untitled Post]
+            函数
             <!-- 404 -->
             
         </h1>
@@ -263,6 +263,16 @@ height:50vh;
         
             <div class="post-intros">
                 <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "笔记">笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "全局变量">全局变量</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "函数">函数</a>
+    
+</div>
                 
                 
                     <div class="post-intro-read">
@@ -395,11 +405,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <hr>
-<p>title:函数<br>tags:Fortran</p>
-<hr>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>[TOC]</p>
-<h2 id="子程序的使用"><a href="#子程序的使用" class="headerlink" title="子程序的使用"></a>子程序的使用</h2><ol>
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="子程序的使用"><a href="#子程序的使用" class="headerlink" title="子程序的使用"></a>子程序的使用</h2><ol>
 <li><p>子程序独立地拥有属于自己的变量声明：在主程序和其他的子程序之间，所声明出来的变量彼此是不相干的。</p>
 </li>
 <li><p><strong>传递参数</strong>：在调用子程序时，可以同时调用一些变量数据过去让它处理。</p>
@@ -513,7 +519,7 @@ height:50vh;
 </ol>
 </li>
 </ol>
-<h3 id="MODULE"><a href="#MODULE" class="headerlink" title="MODULE"></a>MODULE</h3><ol>
+<h2 id="MODULE"><a href="#MODULE" class="headerlink" title="MODULE"></a>MODULE</h2><ol>
 <li><p>MODULE可以用来封装程序模块.比如需要使用全局变量时,可以把全局变量都声明在MODULE中,需要使用这些变量的函数只要USE这个MODULE就可以使用它们.</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> global</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">integer</span> a,b</span><br><span class="line">  <span class="keyword">common</span> a,b</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">module</span></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">use</span> global</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  a=<span class="number">1</span></span><br><span class="line">  b=<span class="number">2</span></span><br><span class="line">  <span class="keyword">call</span> sub()</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></span><br><span class="line"><span class="function"><span class="keyword">subroutine</span></span> sub()</span><br><span class="line">  <span class="keyword">use</span> global</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="built_in">write</span>(*,*) a,b</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">subroutine</span></span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -554,7 +560,7 @@ height:50vh;
             <p>原文作者：<a href="http://leejia.coding.me">leejia</a>
             <p>原文链接：<a href="http://leejia.coding.me/2018/10/05/函数/">http://leejia.coding.me/2018/10/05/函数/</a>
             <p>发表日期：<a href="http://leejia.coding.me/2018/10/05/函数/">October 5th 2018, 10:33:39 pm</a>
-            <p>更新日期：<a href="http://leejia.coding.me/2018/10/05/函数/">September 28th 2018, 4:43:12 pm</a>
+            <p>更新日期：<a href="http://leejia.coding.me/2018/10/05/函数/">October 5th 2018, 10:41:44 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -681,7 +687,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序的使用"><span class="toc-number">1.1.</span> <span class="toc-text">子程序的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义函数"><span class="toc-number">1.2.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量-common"><span class="toc-number">1.3.</span> <span class="toc-text">全局变量(common)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数中的变量"><span class="toc-number">1.4.</span> <span class="toc-text">函数中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊参数的使用方法"><span class="toc-number">1.5.</span> <span class="toc-text">特殊参数的使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊的函数类型"><span class="toc-number">1.6.</span> <span class="toc-text">特殊的函数类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MODULE"><span class="toc-number">1.6.1.</span> <span class="toc-text">MODULE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些少用的功能"><span class="toc-number">1.7.</span> <span class="toc-text">一些少用的功能</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序的使用"><span class="toc-number">1.1.</span> <span class="toc-text">子程序的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义函数"><span class="toc-number">1.2.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量-common"><span class="toc-number">1.3.</span> <span class="toc-text">全局变量(common)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数中的变量"><span class="toc-number">1.4.</span> <span class="toc-text">函数中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊参数的使用方法"><span class="toc-number">1.5.</span> <span class="toc-text">特殊参数的使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊的函数类型"><span class="toc-number">1.6.</span> <span class="toc-text">特殊的函数类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MODULE"><span class="toc-number">1.7.</span> <span class="toc-text">MODULE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些少用的功能"><span class="toc-number">1.8.</span> <span class="toc-text">一些少用的功能</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -723,13 +729,19 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/05/函数/" >[Untitled Post]</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/05/函数/" >函数</a>
         </li>
     
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="全局变量"><span class="iconfont-archer">&#xe606;</span>全局变量</span>
+    
+        <span class="sidebar-tag-name" data-tags="函数"><span class="iconfont-archer">&#xe606;</span>函数</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -763,6 +775,8 @@ jsonContent:
 </div>
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Fortran"><span class="iconfont-archer">&#xe60a;</span>Fortran</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
