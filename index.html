@@ -456,6 +456,199 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fanqieqie.gitee.io/2018/10/08/文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tracy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/TX.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fanqieqie">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/文件/" itemprop="url">文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T10:04:50+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Fortran/" itemprop="url" rel="index">
+                    <span itemprop="name">Fortran</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#文件</p>
+<p>[TOC]</p>
+<h2 id="文件读取的概念"><a href="#文件读取的概念" class="headerlink" title="文件读取的概念"></a>文件读取的概念</h2><ol>
+<li><p>在fortran语言中,<strong>读取文件</strong> 的操作可以有”顺序读取”和”直接读取”两种方法.</p>
+<ul>
+<li><p>顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.</p>
+</li>
+<li><p>直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.</p>
+</li>
+</ul>
+</li>
+<li>文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件”.<ul>
+<li>文本文件: 把所有数据都使用容易阅读的字符符号保存.</li>
+<li>二进制文件: 把数据在内存中的保存内容(也就是二进制码)直接写入文件.(不管数值多少,固定只要使用4个位的空间,因为长整型固定占用4个字节)</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件的操作"><a href="#文件的操作" class="headerlink" title="文件的操作"></a>文件的操作</h2><h3 id="open的使用"><a href="#open的使用" class="headerlink" title="open的使用"></a>open的使用</h3><p>使用open命令打开文件后,可以对文件来做输入/出:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  open(<span class="keyword">unit</span>=<span class="number">10</span>,<span class="keyword">file</span>=<span class="string">'hello.txt'</span>)</span><br><span class="line">  <span class="built_in">write</span>(<span class="number">10</span>,*) <span class="string">"Hello"</span></span><br><span class="line">  <span class="keyword">stop</span></span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>程序执行后不会在屏幕上看到任务输出,执行后会生成一个名为<strong>hello.txt</strong> 的文件,文件中写着:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open (<span class="keyword">unit</span>=<span class="number">10</span>,<span class="keyword">file</span>=<span class="string">'hello.txt)</span></span><br><span class="line"><span class="string">!unit=N 的字段用来给后面的文件指定一个代码</span></span><br><span class="line"><span class="string">!file='</span>filename.txt<span class="string">' 的字段用来指定所要开启的文件名称</span></span><br></pre></td></tr></table></figure>
+<p>总体来说只有2个步骤:</p>
+<ol>
+<li>先打开一个文件名为 <strong>hello.txt</strong>  ,代码为10的文件.</li>
+<li>用<strong>WRITE</strong> 命令,在代码为10的输出位置中(也就是文件hello.txt),写入字符串”Hello” .</li>
+</ol>
+<h3 id="WRITE-READ的使用"><a href="#WRITE-READ的使用" class="headerlink" title="WRITE, READ的使用"></a>WRITE, READ的使用</h3><p>先看一个例子:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">character</span>(len=<span class="number">20</span>) :: string</span><br><span class="line">  open(<span class="keyword">unit</span>=<span class="number">10</span>,<span class="keyword">file</span>=<span class="string">"test.txt"</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">write</span>(<span class="number">10</span>,<span class="string">"(A20)"</span>) <span class="string">"Good morning."</span> <span class="comment">!写到文件中</span></span><br><span class="line">  rewind(<span class="number">10</span>)</span><br><span class="line">  read(<span class="number">10</span>,<span class="string">"(A20)"</span>) string <span class="comment">!从文件中读出来</span></span><br><span class="line">  <span class="built_in">write</span>(*,<span class="string">"(A20)"</span>) string <span class="comment">!写到屏幕上</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">stop</span></span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>执行结果:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Good morning.</span><br></pre></td></tr></table></figure>
+<p>运行流程如下:</p>
+<ol>
+<li><p>第五行打开一个代码为10, 文件名为TEST.TXT 的文件.</p>
+</li>
+<li><p>第六行用WRITE写入字符串 “Good morning.” 到文件中</p>
+</li>
+<li><p>目前的文件读写位置位在 “Good mornig” .字符串后, 因为顺序文件每读写一次就会把读写位置向前进一步, 第七行中使用命令REWIND(10)会把文件的读写位置移回文件最前面.</p>
+</li>
+<li><p>第八行使用READ来读取文件TEST.TXT 中的文本到字符串变量STRING中.</p>
+</li>
+<li><p>把字符串变量STRING的内容写到屏幕上, 发现结果就是”Good morning.”</p>
+</li>
+</ol>
+<h3 id="查询文件的状态"><a href="#查询文件的状态" class="headerlink" title="查询文件的状态"></a>查询文件的状态</h3><p>先来看一段程序, 编写一个检查某个文件是否存在的程序:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">character</span>(len=<span class="number">20</span>) :: filename =<span class="string">"ex0903.f90"</span></span><br><span class="line">  <span class="keyword">logical</span> alive</span><br><span class="line">  </span><br><span class="line">  inquire(<span class="keyword">file</span>=filename, <span class="keyword">exist</span>=alive)</span><br><span class="line">  <span class="keyword">if</span>(alive) <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">write</span>(*,*)filename, <span class="string">"exist"</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">write</span>(*,*)filename, <span class="string">"doesn't exist"</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">stop</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>这个程序可以检查某个文件是否存在, 程序中声明了2个变量.</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">character</span>(len=<span class="number">20</span>) :: filename= <span class="string">"ex0903.f90"</span> <span class="comment">!要查询的文件名称</span></span><br><span class="line"><span class="keyword">logical</span> alive <span class="comment">!用来查询文件是否存在</span></span><br></pre></td></tr></table></figure>
+<p>第6行的<strong>INQUIRE</strong> 命令可以查询字符串filename中记录的文件是否存在.文件存在时ALIVE会被设成 .TRTU. ,不存在则会被设成 .FALSE. </p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inquire(<span class="keyword">file</span>=filename, <span class="keyword">exist</span>=alive)</span><br></pre></td></tr></table></figure>
+<p>第7到第11行的IF程序模块, 会经过ALIVE 变量的值, 来检查文件是否存在.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://fanqieqie.gitee.io/2018/10/05/函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,7 +974,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -803,7 +996,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
