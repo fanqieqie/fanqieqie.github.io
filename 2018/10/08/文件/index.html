@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="#文件 [TOC] 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件">
+<meta name="description" content="#文件 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件”. 文本文">
 <meta name="keywords" content="open,write,read">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件">
 <meta property="og:url" content="https://fanqieqie.gitee.io/2018/10/08/文件/index.html">
 <meta property="og:site_name" content="Fanqieqie">
-<meta property="og:description" content="#文件 [TOC] 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件">
+<meta property="og:description" content="#文件 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件”. 文本文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-08T12:21:16.386Z">
+<meta property="og:updated_time" content="2018-10-08T13:35:03.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件">
-<meta name="twitter:description" content="#文件 [TOC] 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件">
+<meta name="twitter:description" content="#文件 文件读取的概念 在fortran语言中,读取文件 的操作可以有”顺序读取”和”直接读取”两种方法.  顺序读取: 读写一个文件时,只能从头开始,一步步地向下来读取数据,想要略过数据,或是重新读取时,要先像磁带一样”快转”或者”倒带”.  直接读取: 指在读写文件时,可以任意跳跃到文件的任何一个位置来读写.    文件”保存格式”上,也有2种方法: “文本文件” 和 “二进制文件”. 文本文">
 
 
 
@@ -387,7 +387,6 @@
 
       
         <p>#文件</p>
-<p>[TOC]</p>
 <h2 id="文件读取的概念"><a href="#文件读取的概念" class="headerlink" title="文件读取的概念"></a>文件读取的概念</h2><ol>
 <li><p>在fortran语言中,<strong>读取文件</strong> 的操作可以有”顺序读取”和”直接读取”两种方法.</p>
 <ul>
@@ -420,24 +419,30 @@
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Good morning.</span><br></pre></td></tr></table></figure>
 <p>运行流程如下:</p>
 <ol>
-<li><p>第五行打开一个代码为10, 文件名为TEST.TXT 的文件.</p>
+<li><p>第5行打开一个代码为10, 文件名为TEST.TXT 的文件.</p>
 </li>
-<li><p>第六行用WRITE写入字符串 “Good morning.” 到文件中</p>
+<li><p>第6行用WRITE写入字符串 “Good morning.” 到文件中</p>
 </li>
 <li><p>目前的文件读写位置位在 “Good mornig” .字符串后, 因为顺序文件每读写一次就会把读写位置向前进一步, 第七行中使用命令REWIND(10)会把文件的读写位置移回文件最前面.</p>
 </li>
-<li><p>第八行使用READ来读取文件TEST.TXT 中的文本到字符串变量STRING中.</p>
+<li><p>第8行使用READ来读取文件TEST.TXT 中的文本到字符串变量STRING中.</p>
 </li>
 <li><p>把字符串变量STRING的内容写到屏幕上, 发现结果就是”Good morning.”</p>
 </li>
 </ol>
 <h3 id="查询文件的状态"><a href="#查询文件的状态" class="headerlink" title="查询文件的状态"></a>查询文件的状态</h3><p>先来看一段程序, 编写一个检查某个文件是否存在的程序:</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">character</span>(len=<span class="number">20</span>) :: filename =<span class="string">"ex0903.f90"</span></span><br><span class="line">  <span class="keyword">logical</span> alive</span><br><span class="line">  </span><br><span class="line">  inquire(<span class="keyword">file</span>=filename, <span class="keyword">exist</span>=alive)</span><br><span class="line">  <span class="keyword">if</span>(alive) <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">write</span>(*,*)filename, <span class="string">"exist"</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">write</span>(*,*)filename, <span class="string">"doesn't exist"</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">stop</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>这个程序可以检查某个文件是否存在, 程序中声明了2个变量.</p>
+<p>​        这个程序可以检查某个文件是否存在, 程序中声明了2个变量.</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">character</span>(len=<span class="number">20</span>) :: filename= <span class="string">"ex0903.f90"</span> <span class="comment">!要查询的文件名称</span></span><br><span class="line"><span class="keyword">logical</span> alive <span class="comment">!用来查询文件是否存在</span></span><br></pre></td></tr></table></figure>
-<p>第6行的<strong>INQUIRE</strong> 命令可以查询字符串filename中记录的文件是否存在.文件存在时ALIVE会被设成 .TRTU. ,不存在则会被设成 .FALSE. </p>
+<p>​       第6行的<strong>INQUIRE</strong> 命令可以查询字符串filename中记录的文件是否存在.文件存在时ALIVE会被设成 .TRTU. ,不存在则会被设成 .FALSE. </p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inquire(<span class="keyword">file</span>=filename, <span class="keyword">exist</span>=alive)</span><br></pre></td></tr></table></figure>
-<p>第7到第11行的IF程序模块, 会经过ALIVE 变量的值, 来检查文件是否存在.</p>
+<p>​        第7到第11行的IF程序模块, 会经过ALIVE 变量的值, 来检查文件是否存在.</p>
+<h3 id="其他文件运行命令"><a href="#其他文件运行命令" class="headerlink" title="其他文件运行命令"></a>其他文件运行命令</h3><p>这里举例编写一个删除文件的程序:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">  <span class="keyword">integer</span>, <span class="keyword">parameter</span> :: fileid=<span class="number">10</span></span><br><span class="line">  <span class="keyword">logical</span> alive</span><br><span class="line">  <span class="keyword">character</span>(len=<span class="number">20</span>) :: filename;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">write</span>(*,*) <span class="string">"filename"</span></span><br><span class="line">  read(*,<span class="string">"(A20)"</span>) filename</span><br><span class="line">  </span><br><span class="line">  inquire(<span class="keyword">file</span>=filename, <span class="keyword">exist</span>=alive)</span><br><span class="line">  <span class="keyword">if</span>(alive) <span class="keyword">then</span></span><br><span class="line">    open(<span class="keyword">unit</span>=fileid, <span class="keyword">file</span>=filename)</span><br><span class="line">    close(fileid, <span class="keyword">status</span>=<span class="string">"DELETE"</span>)</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">write</span>(*,*)<span class="built_in">TRIM</span>(filename),<span class="string">"doesn't exist"</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">stop</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>​        程序执行后会要求输入一个文件名称, 这个文件如果存在就会把它删除, 文件不存在时就会把它删除, 文件不存在时就会输出错误信息.</p>
+<p>​        删除文件的方法很简单, 先用OPEN命令打开文件, 紧接着就使用CLOSE来关闭文件. CLOSE时赋值不保留这个文件就会把它删除.</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open(<span class="keyword">unit</span>=fileid, <span class="keyword">file</span>=filename)</span><br><span class="line">close(fileid, <span class="keyword">status</span>=<span class="string">"DELETE"</span>) <span class="comment">!不保留文件</span></span><br></pre></td></tr></table></figure>
+<p>​        第15行调用了<strong>TRIM</strong> 函数, 这个函数用来删除字符串后面多余的空格.</p>
 
       
     </div>
@@ -620,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读取的概念"><span class="nav-number">1.</span> <span class="nav-text">文件读取的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的操作"><span class="nav-number">2.</span> <span class="nav-text">文件的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open的使用"><span class="nav-number">2.1.</span> <span class="nav-text">open的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WRITE-READ的使用"><span class="nav-number">2.2.</span> <span class="nav-text">WRITE, READ的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询文件的状态"><span class="nav-number">2.3.</span> <span class="nav-text">查询文件的状态</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读取的概念"><span class="nav-number">1.</span> <span class="nav-text">文件读取的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的操作"><span class="nav-number">2.</span> <span class="nav-text">文件的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open的使用"><span class="nav-number">2.1.</span> <span class="nav-text">open的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WRITE-READ的使用"><span class="nav-number">2.2.</span> <span class="nav-text">WRITE, READ的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询文件的状态"><span class="nav-number">2.3.</span> <span class="nav-text">查询文件的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他文件运行命令"><span class="nav-number">2.4.</span> <span class="nav-text">其他文件运行命令</span></a></li></ol></li></ol></div>
             
 
           </div>
